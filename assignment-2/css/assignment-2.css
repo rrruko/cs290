@@ -4,19 +4,28 @@ body {
 
 header, footer {
   padding: 1em;
+  height: 6em;
   background-color: #333;
   color: #aaa;
   text-align: center;
 }
 
+nav {
+  word-spacing: 1em;
+}
+
 section {
   padding: 1em;
+  padding-top: 0em;
   max-width: 50em;
   margin: auto;
   text-align: justify;
   position: relative;
-  top: -1em;
-  background-color: white;
+  top: -6em;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 #title {
@@ -25,18 +34,14 @@ section {
   letter-spacing: 0.5em;
 }
 
-#body img {
+#float {
   float: left;
-  margin-right: 1em;
-  margin-bottom: 0.5em;
-  /*
-  border-radius: 1em;
-  box-shadow: 0.2em 0.2em;
-  */
+  margin: 1em 1em 0.5em 0em;
 }
 
 .blockquot {
-  padding-left: 2em;
+  padding-left: 1em;
+  border-left: 1em solid #ddd;
 }
 
 p .smcap {
@@ -47,11 +52,11 @@ p .smcap {
   text-indent: 1em;
 }
 
-.center {
+h1, .center {
   text-align: center;
 }
 
-footer a {
+nav a, footer a {
   color: #fff;
 }
 
@@ -59,4 +64,13 @@ footer p {
   margin-left: auto;
   margin-right: auto;
   max-width: 50em;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+#num {
+  font-family: 'Fira Code';
 }
