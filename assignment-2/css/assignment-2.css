@@ -1,0 +1,62 @@
+body { 
+  margin: 0;
+}
+
+header, footer {
+  padding: 1em;
+  background-color: #333;
+  color: #aaa;
+  text-align: center;
+}
+
+section {
+  padding: 1em;
+  max-width: 50em;
+  margin: auto;
+  text-align: justify;
+  position: relative;
+  top: -1em;
+  background-color: white;
+}
+
+#title {
+  font-size: 3em;
+  font-family: Arial, serif;
+  letter-spacing: 0.5em;
+}
+
+#body img {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+  /*
+  border-radius: 1em;
+  box-shadow: 0.2em 0.2em;
+  */
+}
+
+.blockquot {
+  padding-left: 2em;
+}
+
+p .smcap {
+  font-variant: small-caps;
+}
+
+#first {
+  text-indent: 1em;
+}
+
+.center {
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50em;
+}
