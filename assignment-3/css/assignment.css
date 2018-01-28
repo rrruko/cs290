@@ -10,7 +10,6 @@ textarea {
 
 header {
   height: 6em;
-  width: 100%;
 }
 
 footer {
@@ -19,7 +18,9 @@ footer {
 }
 
 header, footer {
-  padding: 1em;
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
   background-color: #111;
   color: #aaa;
   text-align: center;
@@ -106,11 +107,9 @@ button {
 }
 
 .tile .close {
-  background-color: red;
-  padding-right: 0.5em;
-  padding-bottom: 0.5em;
-  right: 2em;
-  top: 2em;
+  color: white;
+  font-size: 2em;
+  right: 1em;
   position: absolute;
   z-index: 1;
 }
