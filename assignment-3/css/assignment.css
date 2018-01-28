@@ -64,6 +64,10 @@ section {
   background: rgba(255, 255, 255, 0.5);
 }
 
+h1 {
+  overflow: hidden;
+}
+
 #title {
   font-size: 3em;
   font-family: Arial, serif;
@@ -100,6 +104,12 @@ section {
   display: block;
   width: 100%;
   box-sizing: border-box;
+}
+
+img.center {
+  margin: auto;
+  display: block;
+  max-width: 100%;
 }
 
 button {
