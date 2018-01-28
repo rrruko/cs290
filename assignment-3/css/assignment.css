@@ -9,7 +9,7 @@ textarea {
 }
 
 header {
-  height: 6em;
+  min-height: 6em;
 }
 
 footer {
@@ -38,15 +38,20 @@ nav a {
   z-index: 1;
   text-decoration: none;
   position: relative;
+  padding-bottom: 1em;
 }
 
-nav div {
+.dropdown {
   float: left;
-  width: 12.5em;
+  width: 25%;
 }
 
 nav a:hover {
-    color: #fff;
+  color: #fff;
+}
+
+.dropdown-content a:hover {
+  background-color: #222;
 }
 
 section {
@@ -93,17 +98,24 @@ h1 {
 }
 
 .tile {
-  padding: 1.5em;
+  padding: 1vw;
   width: 33.33%;
   box-sizing: border-box;
   position: relative;
 }
 
+.tile .inner {
+  padding: 1vw; 
+  background: linear-gradient(45deg, #000, #666);
+  border: 1px solid black;
+}
+
 .tile img {
-  border: 4px solid black;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+img {
+  max-width: 100%;
 }
 
 img.center {
