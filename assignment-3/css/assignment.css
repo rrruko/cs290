@@ -1,4 +1,4 @@
-body { 
+body {
   margin: 0;
   background-image: url('../pics/tile.png');
 }
@@ -106,13 +106,15 @@ h1 {
 
 .tile .inner {
   display: block;
-  padding: 1vw; 
+  padding: 1vw;
   background: linear-gradient(45deg, #000, #666);
   border: 1px solid black;
 }
 
 .tile img {
   border: 1px solid black;
+  display: block;
+  width: 100%;
 }
 
 img {
