@@ -79,7 +79,7 @@ h1 {
   letter-spacing: 0.5em;
 }
 
-#count {
+.count {
   float: left;
   margin: 0em 1em 0.5em 0em;
   display: block;
