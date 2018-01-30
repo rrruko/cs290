@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let nodes = document.getElementsByClassName("tile");
   for (let node of nodes) {
     let closeButtons = node.getElementsByClassName("close");
-    for (let j = 0; j < closeButtons.length; j++) {
-      closeButtons[j].addEventListener("click", function () {
-          hideTile(node);
+    for (let button of closeButtons) {
+      button.addEventListener("click", function () {
+          node.classList.toggle("hidden");
       });
     }
 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   let paragraphs = document.getElementsByClassName("editable");
   for (let p of paragraphs) {
-    imbueEditableEvent(p);
+    makeEditable(p);
   }
 
   let forms = document.getElementsByTagName("form");
@@ -53,7 +53,7 @@ function updateCycle(cycleImages) {
   }
 }
 
-function imbueEditableEvent(p) {
+function makeEditable(p) {
     p.addEventListener("dblclick", function () {
     let newEl = document.createElement("textarea");
     newEl.innerHTML = p.innerHTML;
@@ -63,28 +63,22 @@ function imbueEditableEvent(p) {
 
 function toParagraph(textarea) {
   let para = document.createElement("p");
-  para.className += "editable";
+  para.classList.toggle("editable");
   para.innerHTML = textarea.value;
-  imbueEditableEvent(para);
+  makeEditable(para);
   return para;
-}
-
-function hideTile(tile) {
-  if (!tile.className.includes("hidden")) {
-    tile.className += " hidden";
-  }
 }
 
 function clearTiles() {
   let tiles = document.getElementsByClassName("tile");
   for (let tile of tiles) {
-    hideTile(tile);
+    tile.classList.add("hidden");
   }
 }
 
 function resetTiles() {
    let tiles = document.getElementsByClassName("tile");
    for (let tile of tiles) {
-     tile.className = tile.className.replace("hidden", "");
+     tile.classList.remove("hidden");
    }
 }

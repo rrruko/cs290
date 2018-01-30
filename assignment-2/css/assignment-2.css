@@ -1,17 +1,31 @@
 body { 
   margin: 0;
+  background-image: url('../pics/tile.png');
+}
+
+header {
+  height: 6em;
+  width: 100%;
+}
+
+footer {
+  height: 3em;
+  bottom: 0;
 }
 
 header, footer {
   padding: 1em;
-  height: 6em;
-  background-color: #333;
+  background-color: #111;
   color: #aaa;
   text-align: center;
 }
 
 nav {
   word-spacing: 1em;
+}
+
+nav a:hover {
+    color: #fff;
 }
 
 section {
@@ -25,7 +39,8 @@ section {
   border-left: 1px solid black;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
-  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0.2em 0.2em;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #title {
@@ -41,7 +56,7 @@ section {
 
 .blockquot {
   padding-left: 1em;
-  border-left: 1em solid #ddd;
+  border-left: 1em solid rgba(0, 0, 0, 0.3);
 }
 
 p .smcap {
@@ -57,7 +72,7 @@ h1, .center {
 }
 
 nav a, footer a {
-  color: #fff;
+  color: #ddd;
 }
 
 footer p {
@@ -69,8 +84,14 @@ footer p {
 img {
   display: block;
   margin: auto;
+  border-radius: 0.5em;
+  box-shadow: 0.2em 0.2em;
 }
 
 #num {
   font-family: 'Fira Code';
+}
+
+ul {
+    list-style-image: url('../pics/bullet.svg');
 }
