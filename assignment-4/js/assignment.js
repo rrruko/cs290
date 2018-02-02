@@ -12,6 +12,7 @@ $(document).ready(function (event) {
     outerForm.children("p").toggleClass("hidden");
     outerForm.children("div").toggleClass("hidden");
   });
+
   $(".editable button").click(function () {
     let outerForm = $(this).parents(".editable");
     outerForm.children("p").toggleClass("hidden");
@@ -22,6 +23,7 @@ $(document).ready(function (event) {
   });
 
   let cycleImages = $(".count");
+
   cycleImages.click(function () {
     displayedImage++;
     displayedImage %= cycleImages.length;

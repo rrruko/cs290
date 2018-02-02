@@ -132,10 +132,14 @@ button {
 }
 
 .tile .close {
-  color: white;
-  font-size: 2em;
-  right: 1em;
+  color: black;
+  font-size: 1.5em;
+  display: block;
+  width: 1em;
+  height: 1em;
   position: absolute;
+  top: 2vw;
+  right: 2vw;
   z-index: 1;
 }
 
