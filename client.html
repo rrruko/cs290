@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>
+    Client
+  </title>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(() => {
+      $("button").click(() => {
+        let comment = $("textarea").val();
+        $.ajax({
+          url: "post/comments",
+          data: { payload: comment },
+          type: "POST"
+        });
+        console.log("sent an ajax");
+      });
+    });
+  </script>
+</head>
+<body>
+  <p>
+    Comments
+  </p>
+  <textarea name="comment"></textarea>
+  <button>Submit</button>
+</body>
+</html>
