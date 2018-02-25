@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Assignment 5</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link rel="stylesheet" type="text/css" href="style/lit.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous">
+  </script>
+  <script src="script/client.js"></script>
+</head>
+<body>
+  <div class="c">
+    <header>
+      <h1>Welcome To Hell</h1>
+    </header>
+    
+    <nav class="row">
+      <div id="exchange-tab" class="4 col">Exchange funds</div>
+      <div id="add-tab"      class="4 col">Add a country </div>
+      <div id="update-tab"   class="4 col">Update country</div>
+    </nav>
+    
+    <div id="exchange">
+      <div class="row">
+        <div id="left-panel" class="6 col">
+          Source: 
+            <select id="countries">
+              <!-- Dynamically insert country list here -->
+            </select>
+          <br>
+          Amount:
+            <input type="number" step="any"><br>
+          <button id="clear">Clear</button>
+          <button id="reset">Reset</button>
+        </div>
+        <div id="right-panel" class="6 col">
+          To:
+            <select id="countries">
+              <!-- Dynamically insert country list here -->
+            </select>
+          <div id="result" class="card">
+            Exchange rate for country 1 is <span id="rate1">n</span><br>
+            Exchange rate for country 2 is <span id="rate2">m</span><br>
+            Exchanging <span id="amt1">x</span> 
+              will give you <span id="amt2">y</span>.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="add">
+      <div id="form"> <!-- Intentionally not using HTML form element -->
+        Name: <input type="text" id="name"><br>
+        Rate: <input type="text" id="rate"><br>
+        <button id="submitcountry">Submit</button>
+      </div>
+    </div>
+    
+    <div id="update">
+      
+    </div>
+    
+    <footer class="card">
+      Made by Ethan Jones and Curtis Baney
+    </footer>
+  </div>
+</body>
+</html>
