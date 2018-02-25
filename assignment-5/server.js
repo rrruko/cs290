@@ -17,7 +17,6 @@ app.get('/script/client.js',
   (req, res) => res.sendFile(__dirname + '/script/client.js'))
   
 app.get('/get/country', (req, res) => {
-  let allCountries = []
   MongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw 'dead'
     const db = client.db('countries')
