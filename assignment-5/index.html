@@ -3,8 +3,8 @@
 <head>
   <meta charset='utf-8'>
   <title>Assignment 5</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css">
   <link rel="stylesheet" type="text/css" href="style/lit.css">
+  <link rel="stylesheet" type="text/css" href="style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <script
 		src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -18,53 +18,84 @@
     <header>
       <h1>Welcome To Hell</h1>
     </header>
-    
+  
+  
+
     <nav class="row">
       <div id="exchange-tab" class="4 col">Exchange funds</div>
       <div id="add-tab"      class="4 col">Add a country </div>
       <div id="update-tab"   class="4 col">Update country</div>
     </nav>
-    
+  
+  
+
     <div id="exchange">
       <div class="row">
         <div id="left-panel" class="6 col">
           Source: 
-            <select id="countries">
+            <select class="countries" id="source" tabindex=1>
               <!-- Dynamically insert country list here -->
             </select>
           <br>
           Amount:
-            <input type="number" step="any"><br>
-          <button id="clear">Clear</button>
-          <button id="reset">Reset</button>
+            <input type="number" step="any" id="amount" tabindex=3><br>
+          <button id="clear" tabindex=5>Clear</button>
+          <button id="result" tabindex=4>Result</button>
         </div>
         <div id="right-panel" class="6 col">
           To:
-            <select id="countries">
+            <select class="countries" id="to" tabindex=2>
               <!-- Dynamically insert country list here -->
             </select>
           <div id="result" class="card">
-            Exchange rate for country 1 is <span id="rate1">n</span><br>
-            Exchange rate for country 2 is <span id="rate2">m</span><br>
-            Exchanging <span id="amt1">x</span> 
-              will give you <span id="amt2">y</span>.
+            Exchange rate for <span id="country1"></span> is 1 USD : <span id="rate1">n</span><br>
+            Exchange rate for <span id="country2"></span> is 1 USD : <span id="rate2">m</span><br>
+            Exchanging <span id="symbol1"></span><span id="amt1">x</span> 
+              will give you <span id="symbol2"></span><span id="amt2">y</span>.
           </div>
         </div>
       </div>
     </div>
-    
-    <div id="add">
+  
+
+
+    <div id="add" class="hidden">
       <div id="form"> <!-- Intentionally not using HTML form element -->
-        Name: <input type="text" id="name"><br>
-        Rate: <input type="text" id="rate"><br>
-        <button id="submitcountry">Submit</button>
+        <table>
+          <tr>
+            <td>Name:</td>
+            <td><input type="text" id="name" tabindex=1></td>
+          </tr>
+          <tr>
+            <td>Currency:</td>
+            <td><input type="text" id="currency" tabindex=2></td>
+          </tr>
+          <tr>
+            <td>Rate:</td>
+            <td><input type="number" step="any" id="rate" tabindex=3></td>
+          </tr>
+          <tr>
+            <td>Commision:</td>
+            <td><input type="number"step="any" id="commission" tabindex=4></td>
+          </tr>
+          <tr>
+            <td>Notation:</td>
+            <td><input type="text" id="notation" tabindex=5></td>
+          </tr>
+        </table>
+        <button id="clearsubmissionform" tabindex=7>Clear</button>
+        <button id="submitcountry" tabindex=6>Submit</button>
       </div>
     </div>
-    
-    <div id="update">
+
+
+
+    <div id="update" class="hidden">
       
     </div>
-    
+
+
+
     <footer class="card">
       Made by Ethan Jones and Curtis Baney
     </footer>

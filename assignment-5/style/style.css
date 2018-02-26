@@ -8,14 +8,32 @@ header, footer {
 }
 
 nav {
-  text-align: center;
+  border-bottom: solid #8cf;
+  border-radius: 0.5em;
 }
 
-nav div {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+nav, nav div {
+  text-align: center;
+  border-spacing: 0 !important;
+}
+
+nav div + div {
+}
+
+td {
+  border: 0;
 }
 
 #exchange #left-panel, #exchange #right-panel {
   width: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+.selected {
+  background-color: #8cf;
+  border-radius: 0.5em;
+  color: #fff;
 }
