@@ -22,9 +22,9 @@
   
 
     <nav class="row">
-      <div id="exchange-tab" class="4 col">Exchange funds</div>
-      <div id="add-tab"      class="4 col">Add a country </div>
-      <div id="update-tab"   class="4 col">Update country</div>
+      <div id="exchange-tab" class="4 col selected">Exchange funds</div>
+      <div id="add-tab"      class="4 col"         >Add a country </div>
+      <div id="update-tab"   class="4 col"         >Update country</div>
     </nav>
   
   
@@ -48,10 +48,16 @@
               <!-- Dynamically insert country list here -->
             </select>
           <div id="result" class="card">
-            Exchange rate for <span id="country1"></span> is 1 USD : <span id="rate1">n</span><br>
-            Exchange rate for <span id="country2"></span> is 1 USD : <span id="rate2">m</span><br>
-            Exchanging <span id="symbol1"></span><span id="amt1">x</span> 
-              will give you <span id="symbol2"></span><span id="amt2">y</span>.
+            <div id="exchange-answer" class="hidden">
+              Exchange rate for <span id="country1"></span> is 
+              1 USD : <span id="rate1"></span> <span id="currency1"></span><br>
+              
+              Exchange rate for <span id="country2"></span> is 
+              1 USD : <span id="rate2"></span> <span id="currency2"></span><br>
+                    
+              Exchanging <span id="symbol1"></span><span id="amt1"></span> 
+              will give you <span id="symbol2"></span><span id="amt2"></span>.
+            </div>
           </div>
         </div>
       </div>
@@ -91,7 +97,32 @@
 
 
     <div id="update" class="hidden">
-      
+      <div id="form"> <!-- Intentionally not using HTML form element -->
+        <table>
+          <tr>
+            <td>Name:</td>
+            <td><select class="countries" id="name" tabindex=1></td>
+          </tr>
+          <tr>
+            <td>Currency:</td>
+            <td><input type="text" id="currency" tabindex=2></td>
+          </tr>
+          <tr>
+            <td>Rate:</td>
+            <td><input type="number" step="any" id="rate" tabindex=3></td>
+          </tr>
+          <tr>
+            <td>Commision:</td>
+            <td><input type="number"step="any" id="commission" tabindex=4></td>
+          </tr>
+          <tr>
+            <td>Notation:</td>
+            <td><input type="text" id="notation" tabindex=5></td>
+          </tr>
+        </table>
+        <button id="clearupdateform" tabindex=7>Clear</button>
+        <button id="updatecountry" tabindex=6>Submit</button>
+      </div>      
     </div>
 
 

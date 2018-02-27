@@ -25,15 +25,38 @@ app.get('/get/country', (req, res) => {
   })
 })
   
-app.put('/put/country', (req, res) => {
+app.put('/exchange/:country', (req, res) => {
+  console.log('got put req')
+  
   let body = req.body
-  console.log(JSON.stringify(req.body))
+  console.log('got put: ' + JSON.stringify(req.body))
   res.send(req.body)
   
   MongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw 'dead'
     const db = client.db('countries')
-    console.log('ok')
+    db.collection('countries').update(
+      {name: body.name},
+      {
+        name: body.name,
+        currency: body.currency, 
+        rate: body.rate, 
+        commission: body.commission,
+        notation: body.notation
+      }, 
+      {upsert: true}
+    )
+  })
+})
+
+app.post('/exchange/:country', (req, res) => {
+  let body = req.body
+  console.log('got post: ' + JSON.stringify(req.body))
+  res.send(req.body)
+  
+  MongoClient.connect('mongodb://localhost:27017', (err, client) => {
+    if (err) throw 'dead'
+    const db = client.db('countries')
     db.collection('countries').update(
       {name: body.name},
       {
@@ -51,13 +74,13 @@ app.put('/put/country', (req, res) => {
 app.get('/exchange/:country', (req, res) => {
   MongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw 'dead'
-    console.log('looking for ' + req.params.country)
+    console.log('get request for ' + req.params.country)
     const db = client.db('countries')
     db.collection('countries')
       .find({name: req.params.country})
       .toArray()
       .then(result => { 
-        console.log('get /exchange/:country got result ' + result[0])
+        console.log('  returned object successfully')
         res.send(result[0])
       })
     
