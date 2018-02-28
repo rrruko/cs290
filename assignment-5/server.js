@@ -20,8 +20,13 @@ app.get('/get/country', (req, res) => {
   MongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw 'dead'
     const db = client.db('countries')
-    db.collection('countries').find().toArray()
-      .then(stuff => res.send(stuff))
+    db.collection('countries').find().toArray(function (err, result) {
+      if (err) {
+        res.status(404).send('not found')
+      } else {
+        res.send(result)
+      }
+    })
   })
 })
   
@@ -78,12 +83,10 @@ app.get('/exchange/:country', (req, res) => {
     const db = client.db('countries')
     db.collection('countries')
       .find({name: req.params.country})
-      .toArray()
-      .then(result => { 
-        console.log('  returned object successfully')
+      .toArray(function (err, result) {
+        console.log('    returned object ' + result[0]  + ' successfully')
         res.send(result[0])
       })
-    
   })
 })
 

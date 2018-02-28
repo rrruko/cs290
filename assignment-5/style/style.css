@@ -15,6 +15,7 @@ nav {
 nav, nav div {
   text-align: center;
   border-spacing: 0 !important;
+  cursor: pointer;
 }
 
 nav div + div {
@@ -36,4 +37,8 @@ td {
   background-color: #8cf;
   border-radius: 0.5em;
   color: #fff;
+}
+
+.countries {
+  width: 10em;
 }

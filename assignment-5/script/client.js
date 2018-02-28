@@ -61,45 +61,64 @@ $(() => {
         })
     })
     
-    $('#submitcountry').click(function() {
-        alert('hi')
-        let name = $('#add #name').val()
-        $.ajax({
-          method: 'put',
+    function updateCountry(tab, name) {
+      $.ajax({
+          method: 'post',
           data: JSON.stringify({
               name:       name,
-              currency:   $('#add #currency').val(),
-              rate:       Number($('#add #rate').val()),
-              commission: Number($('#add #commission').val()),
-              notation:   $('#add #notation').val()
+              currency:   $(tab + ' #currency').val(),
+              rate:       Number($(tab + ' #rate').val()),
+              commission: Number($(tab + ' #commission').val()),
+              notation:   $(tab + ' #notation').val()
           }),
           contentType: 'application/json',
           url: 'exchange/' + name,
           success: function(data) {
             alert('Successfully submitted country.')
-            $('#add input').val('')
+            $(tab + ' input').val('')
+          }
+      })
+    }
+    
+    $('#submitcountry').click(function() {
+        let name = $('#add #name').val()
+        $.ajax({
+          method: 'get',
+          url: 'exchange/' + name,
+          success: function(data) {
+              if (data) {
+                let c = window.confirm('This country already exists. ' +
+                  'Do you want to update it?')
+                if (c) {
+                  updateCountry('#add', name)
+                } 
+                $('#add input').val('')
+              } else {
+                $.ajax({
+                  method: 'put',
+                  data: JSON.stringify({
+                      name:       name,
+                      currency:   $('#add #currency').val(),
+                      rate:       Number($('#add #rate').val()),
+                      commission: Number($('#add #commission').val()),
+                      notation:   $('#add #notation').val()
+                  }),
+                  contentType: 'application/json',
+                  url: 'exchange/' + name,
+                  success: function(data) {
+                    alert('Successfully submitted country.')
+                    $('#add input').val('')
+                  }
+                })
+              }
           }
         })
+
     })
     
     $('#updatecountry').click(function() {
         let name = $('#update #name option:selected').text()
-        $.ajax({
-          method: 'post',
-          data: JSON.stringify({
-              name:       name,
-              currency:   $('#update #currency').val(),
-              rate:       Number($('#update #rate').val()),
-              commission: Number($('#update #commission').val()),
-              notation:   $('#update #notation').val()
-          }),
-          contentType: 'application/json',
-          url: 'exchange/' + name,
-          success: function(data) {
-            alert('Successfully submitted country.')
-            $('#update input').val('')
-          }
-        })
+        updateCountry('#update ', name)
     })
     
     $('#clearsubmissionform').click(function() {
